@@ -8,7 +8,6 @@ ARG AWS_SECRET_ACCESS_KEY
 RUN apt-get update -qq && \
     apt-get install -y build-essential \
                        apt-transport-https \
-                       mysql-client \
                        --no-install-recommends
 
 # node

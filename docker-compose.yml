@@ -12,24 +12,4 @@ services:
       - '3000:3000'
     volumes:
       - .:/rails_app
-    extends:
-      file: ./docker/mysql/password.yml
-      service: password
-    depends_on:
-      - db
     command: ["rails", "s", "-b", "0.0.0.0"]
-  db:
-    image: mysql:5.7
-    environment:
-      MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
-      MYSQL_ROOT_HOST: '%'
-    ports:
-      - '3306:3306'
-    volumes:
-      - mysql-data:/var/lib/mysql
-    extends:
-      file: ./docker/mysql/password.yml
-      service: password
-volumes:
-  mysql-data:
-    driver: local
